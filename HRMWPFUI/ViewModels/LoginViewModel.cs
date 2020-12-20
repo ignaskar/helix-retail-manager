@@ -12,6 +12,7 @@ namespace HRMWPFUI.ViewModels
     {
         private string _password;
         private string _userName;
+        private string _errorMessage;
         private IAPIHelper _apiHelper;
         
         public LoginViewModel(IAPIHelper apiHelper)
@@ -41,6 +42,27 @@ namespace HRMWPFUI.ViewModels
             }
         }
 
+        public bool IsErrorVisible
+        {
+            get
+            {
+                var output = ErrorMessage?.Length > 0;
+
+                return output;
+            }
+        }
+
+        public string ErrorMessage
+        {
+            get => _errorMessage;
+            set
+            {
+                _errorMessage = value;
+                NotifyOfPropertyChange(() => IsErrorVisible);
+                NotifyOfPropertyChange(() => ErrorMessage);
+            }
+        }
+        
         public bool CanLogIn
         {
             get
@@ -55,11 +77,12 @@ namespace HRMWPFUI.ViewModels
         {
             try
             {
+                ErrorMessage = "";
                 var result = await _apiHelper.Authenticate(UserName, Password);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                ErrorMessage = ex.Message;
             }
         }
     }

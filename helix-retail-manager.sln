@@ -9,6 +9,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HRMData", "HRMData\HRMData.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRMWPFUI", "HRMWPFUI\HRMWPFUI.csproj", "{70EDACF7-3D39-4F1D-8C96-0C913EA8F9C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRMDataManager.Library", "HRMDataManager.Library\HRMDataManager.Library.csproj", "{2075A220-419B-441B-A334-083B4E0634B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{70EDACF7-3D39-4F1D-8C96-0C913EA8F9C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70EDACF7-3D39-4F1D-8C96-0C913EA8F9C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70EDACF7-3D39-4F1D-8C96-0C913EA8F9C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2075A220-419B-441B-A334-083B4E0634B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2075A220-419B-441B-A334-083B4E0634B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2075A220-419B-441B-A334-083B4E0634B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2075A220-419B-441B-A334-083B4E0634B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
