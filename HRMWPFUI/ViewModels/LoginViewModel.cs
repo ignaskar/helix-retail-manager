@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using HRMWPFUI.Helpers;
+using HRMDesktopUI.Library.Api;
 
 namespace HRMWPFUI.ViewModels
 {
@@ -79,6 +80,9 @@ namespace HRMWPFUI.ViewModels
             {
                 ErrorMessage = "";
                 var result = await _apiHelper.Authenticate(UserName, Password);
+                
+                // Capture more info about the user
+                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
             }
             catch (Exception ex)
             {

@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
-using HRMWPFUI.Models;
+using HRMDesktopUI.Library.Models;
 
-namespace HRMWPFUI.Helpers
+namespace HRMDesktopUI.Library.Api
 {
     public interface IAPIHelper
     {
         Task<AuthenticatedUser> Authenticate(string userName, string password);
+        Task GetLoggedInUserInfo(string token);
     }
 }

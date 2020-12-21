@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using Caliburn.Micro;
+using HRMDesktopUI.Library.Api;
+using HRMDesktopUI.Library.Models;
 using HRMWPFUI.Helpers;
 using HRMWPFUI.ViewModels;
 
@@ -34,6 +34,7 @@ namespace HRMWPFUI
             _container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>()
                 .Singleton<IAPIHelper, APIHelper>();
             
             GetType().Assembly.GetTypes()
