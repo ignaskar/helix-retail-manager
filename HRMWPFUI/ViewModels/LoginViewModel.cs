@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Caliburn.Micro;
 using HRMWPFUI.Helpers;
 using HRMDesktopUI.Library.Api;
+using HRMWPFUI.EventModels;
 
 namespace HRMWPFUI.ViewModels
 {
@@ -15,10 +16,13 @@ namespace HRMWPFUI.ViewModels
         private string _userName;
         private string _errorMessage;
         private IAPIHelper _apiHelper;
-        
-        public LoginViewModel(IAPIHelper apiHelper)
+        private IEventAggregator _events;
+
+
+        public LoginViewModel(IAPIHelper apiHelper, IEventAggregator events)
         {
             _apiHelper = apiHelper;
+            _events = events;
         }
         
         public string UserName
@@ -83,6 +87,8 @@ namespace HRMWPFUI.ViewModels
                 
                 // Capture more info about the user
                 await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
+                
+                _events.PublishOnUIThread(new LogOnEvent());
             }
             catch (Exception ex)
             {
